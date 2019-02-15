@@ -1,0 +1,53 @@
+/****************************************************
+*Daily assignment1-05
+*Created by Gavin Zhou
+*Created on 2019-02-13
+*This program is a game called DiceGame.
+*This game let player gusse what the number between 1~6
+*****************************************************/
+import java.util.Scanner;
+import java.util.Random;
+
+class DiceGame {
+
+	public static void main(String[] args) {
+		// user atlist try once
+		int tries = 1;
+
+		// show user what is this game
+		System.out.println("This is a game about gusseing Dice number.");
+		System.out.println();
+		Scanner scanner = new Scanner(System.in);
+
+		// this about get a random number between 1~6(symbol the 6sides of dice)
+		int random = new Random().nextInt(6) + 1;
+
+		// ask user input a number between 1~6
+		System.out.println("Enter a random number between 1 and 6.");
+		
+		// get the user input
+		do{
+			int user = scanner.nextInt();
+			// if user input = random unmber, tell user win and show to the user how many he tries
+			if(random == user) {
+				System.out.println("You got it !");
+				System.out.println("You took " + tries + " tries. ");
+				break;
+			}
+			// if user is an idiot
+			else if(user > 6) {
+				System.out.println("Invalid input idiot! You can only input numbers between 1-6 !");
+			}
+			// if user out of luck!
+			else{
+				System.out.println("Keep Trying !");
+				tries++;
+			}
+			
+		}while(true);
+		
+		scanner.close();
+
+	}
+
+}
